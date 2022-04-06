@@ -1,5 +1,5 @@
-import { Children, VDOMElement } from "./createElement"
 import render from "./render"
+import {Children, VDOMElement} from "./types"
 
 type Patcher<T> = ($node: T) => HTMLElement | Text | undefined
 
