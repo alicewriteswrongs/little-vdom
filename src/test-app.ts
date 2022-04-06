@@ -14,10 +14,10 @@ const testComponent: Component<State> = (store) => {
       String(count),
       createElement("button", {
         attrs: {},
-        afterELCreate: (node: HTMLButtonElement) => {
+        afterELCreate: (node) => {
           node.addEventListener("click", (event: MouseEvent) => {
             event.preventDefault()
-            store.set("count", count => count + 1)
+            store.set("count", (count) => count + 1)
           })
         },
         children: ["Click to increment"],

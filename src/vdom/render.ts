@@ -1,9 +1,11 @@
 import { VDOMElement, VDOMNode } from "./types"
 
+/**
+ * To handle rendering VDOMNodes - these will be transformed into an HTML
+ * element, including handling their children.
+ */
 function renderElem(vNode: VDOMNode): HTMLElement {
   const $el = document.createElement(vNode.tagName)
-
-  console.log(vNode)
 
   Object.entries(vNode.attrs ?? {}).forEach(([k, v]) => {
     $el.setAttribute(k, v)
@@ -20,6 +22,11 @@ function renderElem(vNode: VDOMNode): HTMLElement {
   return $el
 }
 
+/**
+ * Render a vdom node (including it's children) to something ready to be
+ * inserted into the DOM. For a VDOMNode this would be an HTMLElement, but
+ * for a String it will be, well, a string.
+ */
 const render = (node: VDOMElement) =>
   typeof node === "string" ? document.createTextNode(node) : renderElem(node)
 

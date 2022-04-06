@@ -6,10 +6,8 @@
   "license": "MIT",
   "dependencies": {
     "parcel-bundler": "^1.12.5",
-    "prettier": "^2.6.2"
-  },
-  "scripts": {
-    "start": "parcel src/index.html"
+    "prettier": "^2.6.2",
+    "tsc": "^2.0.4"
   },
   "devDependencies": {
     "typescript": "^4.6.3"
