@@ -1,3 +1,5 @@
+import { Store } from "./store"
+
 export type Children = VDOMElement[]
 
 /**
@@ -9,6 +11,7 @@ export interface VDOMNode {
   tagName: string
   attrs: Record<string, string>
   children: Children
+  afterELCreate: any
 }
 
 /**
@@ -21,4 +24,4 @@ export type VDOMElement = string | VDOMNode
  * A Component is a function which takes in props and returns a VDOMElement. Typically
  * this will be done by returning the result of a call to createElement.
  */
-export type Component<T> = (props: T) => VDOMElement
+export type Component<T> = (store: Store<T>) => VDOMElement

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function fmt {
-    yarn prettier --no-semi --write src/**/*.ts
+    yarn prettier --no-semi --write src/**/*.ts src/*.ts
 }
 
 "$@"

@@ -13,6 +13,10 @@ function renderElem(vNode: VDOMNode): HTMLElement {
     $el.appendChild(render(child))
   })
 
+  if (vNode.afterELCreate) {
+    vNode.afterELCreate($el)
+  }
+
   return $el
 }
 
