@@ -1,5 +1,5 @@
 import { mount } from "./vdom"
-import createElement from "./vdom/createElement"
+import h from "./vdom/h"
 import { Component } from "./vdom/types"
 
 const testComponent: Component<State> = (store) => {

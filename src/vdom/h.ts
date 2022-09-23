@@ -6,7 +6,7 @@ import { Children, VDOMNode } from "./types"
  * This function is designed to be called as a virtual DOM node factory from
  * JSX.
  */
-export default function createElement(
+export default function h(
   tagName: string,
   attrs?: Record<string, any>,
   ...children: Children
