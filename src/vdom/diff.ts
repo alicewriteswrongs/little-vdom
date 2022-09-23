@@ -55,7 +55,6 @@ export default function diff(
   }
 }
 
-// TODO get proper keys here
 type Attrs = Record<string, string>
 
 const diffAttrs =

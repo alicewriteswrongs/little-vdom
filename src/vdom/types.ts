@@ -9,9 +9,8 @@ export type Children = VDOMElement[]
  */
 export interface VDOMNode {
   tagName: string
-  attrs: Record<string, string>
+  attrs: Record<string, any>
   children: Children
-  afterELCreate: any
 }
 
 /**

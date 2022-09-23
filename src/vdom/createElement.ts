@@ -1,31 +1,28 @@
 import { Children, VDOMNode } from "./types"
 
 /**
- * The options you can pass in to createElement when you're creating a VDOMNode.
+ * Create a virtual DOM node
  *
- * This covers basically attrs you'd like to be on the mounted HTMLElement,
- * children, and an optional callback that will be called with the element after it
- * is created (useful for attaching click handlers, since I haven't come up with a better
- * way to do that yet).
+ * This function is designed to be called as a virtual DOM node factory from
+ * JSX.
  */
-export interface VDOMOptions {
-  attrs?: Record<string, any>
-  children?: Children
-  afterELCreate?: <T extends HTMLElement>(el: T) => void
-}
-
 export default function createElement(
   tagName: string,
-  options: VDOMOptions = {}
+  attrs?: Record<string, any>,
+  ...children: Children
 ): VDOMNode {
-  const children = options.children ?? []
-  const attrs = options.attrs ?? {}
-  const afterELCreate = options.afterELCreate
+  attrs = attrs ?? {}
+  children = (children ?? []).map((child) =>
+    typeof child === "string" ||
+    typeof child === "number" ||
+    typeof child === "boolean"
+      ? String(child)
+      : child
+  )
 
   return {
     tagName,
     attrs,
     children,
-    afterELCreate,
   }
 }

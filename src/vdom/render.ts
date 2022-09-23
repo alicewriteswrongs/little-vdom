@@ -8,16 +8,16 @@ function renderElem(vNode: VDOMNode): HTMLElement {
   const $el = document.createElement(vNode.tagName)
 
   Object.entries(vNode.attrs ?? {}).forEach(([k, v]) => {
-    $el.setAttribute(k, v)
+    if (k === "onclick") {
+      $el.onclick = v
+    } else {
+      $el.setAttribute(k, v)
+    }
   })
 
   vNode.children.forEach((child) => {
     $el.appendChild(render(child))
   })
-
-  if (vNode.afterELCreate) {
-    vNode.afterELCreate($el)
-  }
 
   return $el
 }

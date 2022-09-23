@@ -6,9 +6,6 @@ type Setter<S> = (val: S) => S
 export interface Store<State> {
   /**
    * Get a value out of the store!
-   *
-   * It's probably a better idea to do this rather than using the getState
-   * method, but I guess you could just do that too.
    */
   get: <K extends keyof State>(k: K) => State[K]
   /**
@@ -20,7 +17,6 @@ export interface Store<State> {
    * set to whatever is returned by that function.
    */
   set: <K extends keyof State>(k: K, v: Setter<State[K]>) => void
-  getState: () => State
 }
 
 export default function createStore<T>(initialState: T): Store<T> {
@@ -41,6 +37,5 @@ export default function createStore<T>(initialState: T): Store<T> {
   return {
     get,
     set,
-    getState,
   }
 }

@@ -5,11 +5,16 @@
   "author": "Alice Pote <alice.writes.wrongs@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "parcel": "^2.5.0",
     "prettier": "^2.6.2",
-    "tsc": "^2.0.4"
+    "tsc": "^2.0.4",
+    "vite": "^3.1.3"
   },
   "devDependencies": {
     "typescript": "^4.6.3"
+  },
+  "scripts": {
+    "fmt": "prettier --no-semi --write src/**/*.tsx src/**/*.ts src/*.tsx",
+    "ts:watch": "tsc --noEmit --watch",
+    "start": "vite"
   }
 }
